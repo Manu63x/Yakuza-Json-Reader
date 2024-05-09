@@ -19,7 +19,6 @@ def printAllItems(jsonFile):
                 print('\n')
     f.close()
 
-
 def printAllItemsOnFile(jsonFile, outputFile):
     f = open(jsonFile)
     f2 = open(outputFile, 'w')
@@ -34,12 +33,19 @@ def printAllItemsOnFile(jsonFile, outputFile):
                 f2.write(string)
     f.close()
 
-def printInnerTags(jsonFile, topObjID):
+def printInnerTag(jsonFile, topObjID):
     f = open(jsonFile)
     data = json.load(f)
     a = json.dumps(data[topObjID])
     for key in json.loads(a):
         print(key)
+
+def getInnerTag(jsonFile, topObjID):
+    f = open(jsonFile)
+    data = json.load(f)
+    a = json.dumps(data[str(topObjID)])
+    for key in json.loads(a):
+        return key
 
 def getNameById(jsonFile, topObjID):
     f = open(jsonFile)
@@ -57,5 +63,14 @@ def getExplanationById(jsonFile, topObjID):
     for key in json.loads(a):
         return data['' + str(topObjID)]['' + key]['explanation']
 
+def getItemById(jsonFile, topObjID):
+    f = open(jsonFile)
+    data = json.load(f)
+    f.close()
+    return data['' + str(topObjID)]
+
+a = getItemById('item.json', 2951)
+a[getInnerTag('item.json', 2951)]['name'] = 'GAY'
+print(a[getInnerTag('item.json', 2951)])
 # printAllItems('item.json')
 # print(getExplanationById('item.json', 2951))

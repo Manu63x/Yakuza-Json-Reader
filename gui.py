@@ -29,7 +29,7 @@ def loadItemIntoText(event):
     text2.delete(1.0,END)
 
     text1.insert(END, getNameById(filename, selected))
-    text2.insert(END, getExplanationById(filename, selected))
+    text2.insert(END, getExplanationById(filename, selected).replace('\r', '\\r').replace('\n', '\\n'))
     
 filename = ''
 
