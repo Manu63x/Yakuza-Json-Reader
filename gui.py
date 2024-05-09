@@ -24,14 +24,18 @@ def load():
 def loadItemIntoText(event): 
     cs = mylist.curselection()
     selected = mylist.get(cs)
-    # print(selected)
-    # TODO: insert text into TEXT areas with getName and Explanation by Id function
+    
+    text1.delete(1.0,END)
+    text2.delete(1.0,END)
+
+    text1.insert(END, getNameById(filename, selected))
+    text2.insert(END, getExplanationById(filename, selected))
     
 filename = ''
 
 root = Tk()
 root.title("Yakuza Kiwami 2 JSON Reader")
-root.state('zoomed')
+# root.state('zoomed')
 
 # Frame principale
 main_frame = Frame(root)
