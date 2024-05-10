@@ -69,8 +69,9 @@ def getItemById(jsonFile, topObjID):
     f.close()
     return data['' + str(topObjID)]
 
-a = getItemById('item.json', 2951)
-a[getInnerTag('item.json', 2951)]['name'] = 'GAY'
-print(a[getInnerTag('item.json', 2951)])
+# a = getItemById('item.json', 2951)
+# a[getInnerTag('item.json', 2951)]['name'] = 'GAY'
+# print(a[getInnerTag('item.json', 2951)])
+
 # printAllItems('item.json')
 # print(getExplanationById('item.json', 2951))
