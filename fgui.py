@@ -97,7 +97,11 @@ class JSONTreeView(tk.Frame):
         # Get the path to the item being edited
         path = get_path(item_id)
 
+        # print(path)
         # Traverse the json_data dictionary to update the value
+        # TODO: fare l'update su json_data e poi stampare per verificare, es di path ['270', 'a10_0150', 'cinema_telop', '4', '', '4', 'Ah, ci voleva proprioooo.']
+        # data è json_data duplicato
+        
         data = self.json_data
         for key in path[:-1]:  # Traverse to the parent of the item
             data = data[key]
